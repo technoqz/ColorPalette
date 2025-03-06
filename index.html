@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette with Vue 3</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="columns">
+        <color-column
+          v-for="(color, index) in colors"
+          :key="index"
+          :color="color"
+          @update:color="updateColor(index, $event)"
+          @delete="deleteColumn(index)"
+        >
+        </color-column>
+      </div>
+      <div id="footer">
+        <input v-model="colorArrayString" />
+        <button @click="addColumn">Add Column</button>
+      </div>
+    </div>
+
+    <!-- Load Vue 3 from CDN -->
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js"></script>
+
+    <!-- Load JavaScript files -->
+    <script src="color-column.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
